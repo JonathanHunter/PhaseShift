@@ -131,12 +131,10 @@
 
         private void Idle()
         {
-
         }
 
         private void Aim()
         {
-
         }
 
         private void Shoot()

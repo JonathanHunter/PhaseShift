@@ -886,7 +886,8 @@ MonoBehaviour:
   animatorLayer: Weapon
   aim: []
   shoot: []
-  shotTime: 0.5
+  shotTime: 0.05
+  spaceTime: 1
 --- !u!4 &516300845
 Transform:
   m_ObjectHideFlags: 0

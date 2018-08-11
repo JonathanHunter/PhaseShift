@@ -16,6 +16,8 @@
         private AnimationClip[] shoot;
         [SerializeField]
         private float shotTime;
+        [SerializeField]
+        private float spaceTime;
 
         private enum State { Idle, Aim, Shoot }
 
@@ -63,9 +65,9 @@
             }
 
             bool shouldShoot = false;
-            if (this.shotTime > 0)
-                this.shotTime -= Time.deltaTime;
-            else if (CustomInput.BoolFreshPress(CustomInput.UserInput.Shoot1) || CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
+            if (this.shotTimer > 0)
+                this.shotTimer -= Time.deltaTime;
+            else if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1) || CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
                 shouldShoot = true;
 
             this.anim.SetBool(this.aimHash, shouldAim);
@@ -166,10 +168,10 @@
                     Debug.Log("bang bang");
                     this.shotTimer = this.shotTime;
                 }
-                else if (CustomInput.BoolFreshPress(CustomInput.UserInput.Shoot1))
+                else if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1))
                 {
                     Debug.Log("BANG");
-                    this.shotTimer = this.shotTime * 5;
+                    this.shotTimer = this.spaceTime;
                 }
             }
         }

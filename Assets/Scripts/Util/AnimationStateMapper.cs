@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class AnimationStateMappper<T> where T : struct, IConvertible
+    public class AnimationStateMapper<T> where T : struct, IConvertible
     {
         /// <summary> Mapping between state hashes and state names. </summary>
         private Dictionary<int, T> stateMap;
@@ -17,7 +17,7 @@
         /// <param name="statePaths"> The full system paths to the states needing to be tracked. </param>
         /// <param name="animator"> The animator containing the states to track. </param>
         /// <param name="layerIndex"> The layer the states being tracked are on. </param>
-        public AnimationStateMappper(List<string> statePaths, Animator animator, int layerIndex)
+        public AnimationStateMapper(List<string> statePaths, Animator animator, int layerIndex)
         {
             if (!typeof(T).IsEnum)
                 throw new ArgumentException("T must be an enumerated type");

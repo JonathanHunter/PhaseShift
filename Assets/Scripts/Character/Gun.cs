@@ -14,6 +14,8 @@
         private AnimationClip[] aim;
         [SerializeField]
         private AnimationClip[] shoot;
+        [SerializeField]
+        private float shotTime;
 
         private enum State { Idle, Aim, Shoot }
 
@@ -22,9 +24,11 @@
         private AnimationStateMapper<State> mapper;
         private State currentState;
         private Vector2 aimDir;
-        private Vector2 mousePos;
+        private Vector3 mousePos;
         private int currentClipSet;
         private int aimHash;
+        private int shootHash;
+        private float shotTimer;
 
 
         private void Start()
@@ -45,6 +49,7 @@
             this.mousePos = Vector2.zero;
             this.currentClipSet = 0;
             this.aimHash = Animator.StringToHash("Aim");
+            this.shootHash = Animator.StringToHash("Shoot");
             this.sceneCamera = FindObjectOfType<Camera>();
         }
 
@@ -54,10 +59,17 @@
             if (shouldAim)
             {
                 this.aimDir = GetAimDir();
-                CalculateClipSet(Vector2.Angle(Vector2.right, this.aimDir));
+                //CalculateClipSet(Vector2.Angle(Vector2.right, this.aimDir));
             }
 
+            bool shouldShoot = false;
+            if (this.shotTime > 0)
+                this.shotTime -= Time.deltaTime;
+            else if (CustomInput.BoolFreshPress(CustomInput.UserInput.Shoot1) || CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
+                shouldShoot = true;
+
             this.anim.SetBool(this.aimHash, shouldAim);
+            this.anim.SetBool(this.shootHash, shouldShoot);
             this.currentState = this.mapper.GetCurrentState();
             switch(this.currentState)
             {
@@ -69,14 +81,22 @@
 
         private bool ShouldAim()
         {
-            if(CustomInput.UsingPad)
+            if (CustomInput.UsingPad)
             {
                 float up = CustomInput.Bool(CustomInput.UserInput.LookUp) ? CustomInput.Raw(CustomInput.UserInput.LookUp) : CustomInput.Raw(CustomInput.UserInput.LookDown);
                 float right = CustomInput.Bool(CustomInput.UserInput.LookRight) ? CustomInput.Raw(CustomInput.UserInput.LookRight) : CustomInput.Raw(CustomInput.UserInput.LookLeft);
                 return up != 0 || right != 0;
             }
             else
-                return !(mousePos != new Vector2(CustomInput.MouseX, CustomInput.MouseY));
+            {
+                if (this.mousePos != new Vector3(CustomInput.MouseX, CustomInput.MouseY, 0))
+                {
+                    this.mousePos = new Vector3(CustomInput.MouseX, CustomInput.MouseY, 0);
+                    return true;
+                }
+
+                return false;
+            }
         }
 
         private Vector2 GetAimDir()
@@ -89,7 +109,7 @@
             }
             else
             {
-                Vector3 norm = (new Vector3(CustomInput.MouseX, CustomInput.MouseY, 0) - this.sceneCamera.WorldToScreenPoint(this.transform.position)).normalized;
+                Vector3 norm = (this.mousePos - this.sceneCamera.WorldToScreenPoint(this.transform.position)).normalized;
                 up = norm.y;
                 right = norm.x;
             }
@@ -139,7 +159,19 @@
 
         private void Shoot()
         {
-
+            if (shotTimer <= 0)
+            {
+                if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
+                {
+                    Debug.Log("bang bang");
+                    this.shotTimer = this.shotTime;
+                }
+                else if (CustomInput.BoolFreshPress(CustomInput.UserInput.Shoot1))
+                {
+                    Debug.Log("BANG");
+                    this.shotTimer = this.shotTime * 5;
+                }
+            }
         }
     }
 }

@@ -7,7 +7,6 @@
     /// <summary> Wraps Keyboard and Gamepad inputs into one set of booleans and raw float data. </summary>
     public class CustomInput : MonoBehaviour
     {
-
         [SerializeField]
         private bool UseConfigFile;
 

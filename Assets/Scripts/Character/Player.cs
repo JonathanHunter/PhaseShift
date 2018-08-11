@@ -21,7 +21,7 @@
 
         private enum State { Idle, Move, Jump, Fall }
         private State currentState;
-        private AnimationStateMappper<State> mapper;
+        private AnimationStateMapper<State> mapper;
         private int inAir;
         private int jump;
         private bool inTrigger;
@@ -30,7 +30,7 @@
         {
             this.currentState = State.Idle;
             int layerIndex = this.anim.GetLayerIndex(this.animatorLayer);
-            this.mapper = new AnimationStateMappper<State>(
+            this.mapper = new AnimationStateMapper<State>(
                 new List<string> {
                     this.animatorLayer + ".Idle",
                     this.animatorLayer + ".Move",

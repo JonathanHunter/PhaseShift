@@ -27,6 +27,14 @@
 
         private void Update()
         {
+            if (Managers.GameManager.Instance.IsPaused)
+            {
+                Rigidbody r = this.GetComponent<Rigidbody>();
+                if (r != null)
+                    r.velocity = Vector3.zero;
+                return;
+            }
+
             LocalUpdate();
             if ((this.currentLifeTime -= Time.deltaTime) <= 0)
             {

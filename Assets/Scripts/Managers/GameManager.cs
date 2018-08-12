@@ -12,7 +12,7 @@
 
         public static GameManager Instance { get { return instance; } }
 
-        public GameState CurrentState { get { return this.currentState; } }
+        public GameState CurrentState { get { return this.currentState; } set { this.currentState = value; } }
 
         public bool IsPaused { get { return this.currentState != GameState.Playing; } }
 

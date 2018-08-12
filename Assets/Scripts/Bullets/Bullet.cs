@@ -68,7 +68,7 @@
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.tag != Util.Enums.Tags.Space.ToString())
+            if(other.gameObject.tag != Util.Enums.Tags.Space.ToString() && this.gameObject.tag != Util.Enums.Tags.Space.ToString())
                 this.currentLifeTime = 0;
         }
 

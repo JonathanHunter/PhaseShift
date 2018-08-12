@@ -17,9 +17,9 @@
 
         /// <summary>
         /// The different types of bullets:
-        /// Player: Pistol bullets from the player
-        /// Enemy: Enemy pistol bullets
-        /// EnemySpiper: Enemy sniper bullets
+        /// Basic: Pistol bullets from the player
+        /// Space: Phase bullets from the player
+        /// Enemy: Enemy bullets 
         /// </summary>
         public enum BulletTypes { Basic, Space, Enemy}
 
@@ -28,12 +28,12 @@
 
         protected override void PreInit()
         {
-            if (Instance != null && Instance != this)
-            {
-                Debug.LogError("Duplicate Bullet Pool detected: removing " + this.gameObject.name);
-                Destroy(this.gameObject);
-                return;
-            }
+            //if (Instance != null && Instance != this)
+            //{
+            //    Debug.LogError("Duplicate Bullet Pool detected: removing " + this.gameObject.name);
+            //    Destroy(this.gameObject);
+            //    return;
+            //}
 
             Instance = this;
         }

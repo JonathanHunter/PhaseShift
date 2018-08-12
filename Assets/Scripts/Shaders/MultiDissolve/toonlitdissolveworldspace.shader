@@ -14,17 +14,17 @@ Shader "Toon/Lit Dissolve DoubleTex" {
     }
  
         SubShader{
-            Tags { "RenderType" = "Transparent" }
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
             LOD 200            
         
 CGPROGRAM
  
-#pragma surface surf ToonRamp 
+#pragma surface surf ToonRamp alpha:fade
 sampler2D _Ramp;
  
 // custom lighting function that uses a texture ramp based
 // on angle between light direction and normal
-#pragma lighting ToonRamp exclude_path:prepass
+#pragma lighting ToonRamp exclude_path:prepass alpha:fade
 inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
 {
     #ifndef USING_DIRECTIONAL_LIGHT
@@ -35,7 +35,7 @@ inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
     half3 ramp = tex2D (_Ramp, float2(d,d)).rgb;
     half4 c;
     c.rgb = s.Albedo * _LightColor0.rgb * ramp * (atten * 2);
-    c.a = 0;
+    c.a = 1;
     return c;
 }
 
@@ -113,8 +113,12 @@ void surf (Input IN, inout SurfaceOutput o) {
 	float3 resultTex = primaryTex + secondaryTex + DissolveLine;
     o.Albedo = resultTex;
 
+	float3 primaryAlpha = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.a);
+	float3 secondaryAlpha = (step(_DisAmount, sphereNoise) * c2.a);
+	float3 resultAlpha = primaryAlpha + secondaryAlpha + DissolveLine;
+
 	o.Emission = DissolveLine;
-	o.Alpha = c.a;
+	o.Alpha = 0;
    
 }
 ENDCG

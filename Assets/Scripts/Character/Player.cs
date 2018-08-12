@@ -50,7 +50,7 @@
                 return;
 
             if (!this.inTrigger)
-                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.Player.ToString());
+                this.foot.layer = (int)Enums.Layers.Player;
 
             this.inTrigger = false;
             this.currentState = this.mapper.GetCurrentState();
@@ -68,7 +68,7 @@
         {
             if (collision.gameObject.tag == Enums.Tags.Space.ToString())
             {
-                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.PlayerPhase.ToString());
+                this.foot.layer = (int)Enums.Layers.PlayerPhase;
                 this.inTrigger = true;
             }
         }
@@ -77,7 +77,7 @@
         {
             if (collision.gameObject.tag == Enums.Tags.Space.ToString())
             {
-                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.PlayerPhase.ToString());
+                this.foot.layer = (int)Enums.Layers.PlayerPhase;
                 this.inTrigger = true;
             }
         }
@@ -86,7 +86,7 @@
         {
             if (collision.gameObject.tag == Enums.Tags.Space.ToString())
             {
-                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.Player.ToString());
+                this.foot.layer = (int)Enums.Layers.Player;
                 this.inTrigger = true;
             }
         }

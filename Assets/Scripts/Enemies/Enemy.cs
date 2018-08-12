@@ -1,7 +1,8 @@
-﻿namespace PhaseShift.Bullets
+﻿namespace PhaseShift.Enemies
 {
     using UnityEngine;
     using ObjectPooling;
+    using Util;
 
     /// <summary> Parent class for enemies. </summary>
     public abstract class Enemy : MonoBehaviour, IPoolable
@@ -10,6 +11,8 @@
         [SerializeField]
         [Tooltip("The type of enemy this is.  (Object pooling management)")]
         private EnemyPool.EnemyTypes type = EnemyPool.EnemyTypes.Basic;
+        [SerializeField]
+        private int maxHealth;
 
         /// <summary> The type of enemy this is.  (Object pooling management) </summary>
         public EnemyPool.EnemyTypes Type { get { return this.type; } }
@@ -17,21 +20,63 @@
         /// <summary> The index for this enemy in the pool. (Object pooling management) </summary>
         private int referenceIndex = 0;
 
+        private Enums.Layers startLayer;
+        private Enums.Layers phaseLayer;
+        private bool inTrigger;
+        private int health;
+
+        public void SetLayers(Enums.Layers startLayer, Enums.Layers phaseLayer)
+        {
+            this.startLayer = startLayer;
+            this.phaseLayer = phaseLayer;
+            this.gameObject.layer = (int)this.startLayer;
+        }
+
         private void Update()
         {
             if (Managers.GameManager.Instance.IsPaused)
-            {
-                Rigidbody r = this.GetComponent<Rigidbody>();
-                if (r != null)
-                    r.velocity = Vector3.zero;
                 return;
-            }
+            if (!this.inTrigger)
+                this.gameObject.layer = (int)this.startLayer;
+
+            this.inTrigger = false;
+            if (this.health <= 0)
+                ReturnEnemy();
 
             LocalUpdate();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.gameObject.tag == Enums.Tags.PlayerBullet.ToString())
+                this.health--;
+        }
+
+        private void OnTriggerEnter(Collider collision)
+        {
+            if (collision.gameObject.tag == Enums.Tags.Space.ToString())
+            {
+                this.gameObject.layer = (int)this.phaseLayer;
+                this.inTrigger = true;
+            }
+        }
+
+        private void OnTriggerStay(Collider collision)
+        {
+            if (collision.gameObject.tag == Enums.Tags.Space.ToString())
+            {
+                this.gameObject.layer = (int)this.phaseLayer;
+                this.inTrigger = true;
+            }
+        }
+
+        private void OnTriggerExit(Collider collision)
+        {
+            if (collision.gameObject.tag == Enums.Tags.Space.ToString())
+            {
+                this.gameObject.layer = (int)this.startLayer;
+                this.inTrigger = true;
+            }
         }
 
         public IPoolable SpawnCopy(int referenceIndex)
@@ -60,6 +105,8 @@
         {
             LocalReInitialize();
             this.gameObject.SetActive(true);
+            this.inTrigger = false;
+            this.health = this.maxHealth;
         }
 
         public void Deallocate()

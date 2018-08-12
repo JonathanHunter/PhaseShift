@@ -1,4 +1,4 @@
-﻿namespace PhaseShift.Bullets
+﻿namespace PhaseShift.Enemies
 {
     using UnityEngine;
     using ObjectPooling;

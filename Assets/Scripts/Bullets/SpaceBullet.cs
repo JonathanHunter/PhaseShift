@@ -47,6 +47,7 @@
             this.rgbdy.useGravity = true;
             this.ball.SetActive(true);
             this.doOnce = false;
+            this.isDetonated = false;
         }
 
         protected override void LocalUpdate()

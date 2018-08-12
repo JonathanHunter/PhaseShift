@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114781575045399764}
   - component: {fileID: 114549652563034758}
   - component: {fileID: 114904244659427610}
+  - component: {fileID: 114012440311849890}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -42,6 +43,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114012440311849890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969703176281008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9393d75f9f02a459eb7116519b36d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoints: []
+  player: {fileID: 0}
 --- !u!114 &114549652563034758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,7 +70,8 @@ MonoBehaviour:
   bulletPools:
   - {fileID: 114690911913297912, guid: 5773cb960092fd84293d788f3f7e50d6, type: 2}
   - {fileID: 114222377726547470, guid: 47283cbc2fc77bf468670377a6906bdd, type: 2}
-  bulletPoolSizes: 1e0000000f000000
+  - {fileID: 114690911913297912, guid: cb5cda928c0d0614492af6b7fb343768, type: 2}
+  bulletPoolSizes: 1e0000000f0000001e000000
 --- !u!114 &114781575045399764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,4 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPools:
   - {fileID: 114246456967780140, guid: 4d0e9c2ef5e391a41b6343c4173cd99d, type: 2}
-  enemyPoolSizes: 03000000
+  - {fileID: 114274229893160690, guid: c67ab9427fe5f1b48bdc8c9b36cd68ba, type: 2}
+  enemyPoolSizes: 0300000003000000

@@ -485,6 +485,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1853617841609676, guid: 71ecbea5a054e164281d442abba65eb2,
     type: 2}
   m_PrefabInternal: {fileID: 1134350171}
+--- !u!1 &773672755 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1683483635298178, guid: 71fad8cb833db194abc24dd423d07543,
+    type: 2}
+  m_PrefabInternal: {fileID: 1469581341}
 --- !u!1 &791549541
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 1369726288}
   right: {fileID: 840016373}
-  type: 0
+  type: 1
   startLayer: 15
   phaseLayer: 16
 --- !u!1 &840016372
@@ -705,6 +710,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114012440311849890, guid: ca56b912ac990044bbc9bc925730a0c5,
+        type: 2}
+      propertyPath: checkpoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4959024085747512, guid: ca56b912ac990044bbc9bc925730a0c5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.03359531
@@ -737,27 +747,61 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114012440311849890, guid: ca56b912ac990044bbc9bc925730a0c5,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 16511642}
+    - target: {fileID: 114012440311849890, guid: ca56b912ac990044bbc9bc925730a0c5,
+        type: 2}
+      propertyPath: checkpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 773672755}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca56b912ac990044bbc9bc925730a0c5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1412787135 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1969703176281008, guid: ca56b912ac990044bbc9bc925730a0c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1412787134}
---- !u!114 &1412787136
-MonoBehaviour:
+--- !u!1001 &1469581341
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1412787135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9393d75f9f02a459eb7116519b36d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpoints: []
-  player: {fileID: 16511642}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 20.240002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559814452889910, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 71fad8cb833db194abc24dd423d07543, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1503504529 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1201144300972882, guid: 71ecbea5a054e164281d442abba65eb2,

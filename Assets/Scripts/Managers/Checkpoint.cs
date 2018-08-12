@@ -9,10 +9,9 @@
 
         [SerializeField]
         private Collider col;
-
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.tag == Util.Enums.Tags.Player.ToString())
+            if (other.gameObject.tag == Util.Enums.Tags.Player.ToString())
             {
                 CheckpointManager.Instance.RegisterCheckpoint(this.number);
                 this.col.enabled = false;

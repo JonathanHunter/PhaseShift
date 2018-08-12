@@ -42,8 +42,8 @@
             this.inTrigger = false;
             if (this.health <= 0)
                 Death();
-
-            LocalUpdate();
+            else
+                LocalUpdate();
         }
 
         private void OnCollisionEnter(Collision collision)

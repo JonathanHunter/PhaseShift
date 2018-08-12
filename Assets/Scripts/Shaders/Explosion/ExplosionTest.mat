@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TestWorldDissolve
-  m_Shader: {fileID: 4800000, guid: afa8e7aacfe7c3749abc67d4c4e14c8d, type: 3}
+  m_Name: ExplosionTest
+  m_Shader: {fileID: 4800000, guid: 977db37a8a6bebe40b0835a10444f1fb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,6 +20,14 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cutoff:
+        m_Texture: {fileID: 2800000, guid: f348d5c3a26766849a4037b1f392d5a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Decay:
+        m_Texture: {fileID: 2800000, guid: 4db3b5b139cf2eb4f9a1c6f608c5dd71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -38,16 +46,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Gradient:
+        m_Texture: {fileID: 2800000, guid: bd1b34b8024d93f4dbb416df3e5d9197, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 02fc3cfc1b5810044b60e418c92e6c41, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 3b0ad617c82bf0e4c83d279c28163cfb, type: 3}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: f035511ba63f2a141aaadb5e0b5db98a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -58,30 +70,25 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Ramp:
-        m_Texture: {fileID: 2800000, guid: 3b0ad617c82bf0e4c83d279c28163cfb, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SecondTex:
-        m_Texture: {fileID: 2800000, guid: c941d4ebcc9202d438b8002d5d0c0718, type: 3}
+    - _Smoke:
+        m_Texture: {fileID: 2800000, guid: d3d6648041518384f9e547b0fa8e0790, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Brightness: 0.23
     - _BumpScale: 1
+    - _CutThres: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DisAmount: 0.01
-    - _DisLineWidth: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NScale: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 1.84
+    - _Progression: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -89,6 +96,4 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2: {r: 1, g: 1, b: 1, a: 1}
-    - _DisLineColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

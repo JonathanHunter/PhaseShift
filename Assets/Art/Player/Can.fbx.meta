@@ -67,6 +67,62 @@ ModelImporter:
     100122: toe_R
     100124: upper_arm_L
     100126: upper_arm_R
+    100128: Cube.001
+    100130: Cube.002
+    100132: Cube.003
+    100134: Cylinder.001
+    100136: Cylinder.002
+    100138: f_index.01.L
+    100140: f_index.01.R
+    100142: f_index.02.L
+    100144: f_index.02.L_end
+    100146: f_index.02.R
+    100148: f_index.02.R_end
+    100150: f_middle.01.L
+    100152: f_middle.01.R
+    100154: f_middle.02.L
+    100156: f_middle.02.L_end
+    100158: f_middle.02.R
+    100160: f_middle.02.R_end
+    100162: foot.L
+    100164: foot.R
+    100166: forearm.L
+    100168: forearm.R
+    100170: gun.L
+    100172: gun.L_end
+    100174: gun.R
+    100176: gun.R_end
+    100178: HairBone_end
+    100180: hand.L
+    100182: hand.R
+    100184: palm.01.L
+    100186: palm.01.R
+    100188: palm.02.L
+    100190: palm.02.R
+    100192: Plane.001
+    100194: shin.L
+    100196: shin.R
+    100198: shoulder.L
+    100200: shoulder.R
+    100202: Sphere.001
+    100204: Sphere.002
+    100206: Sphere.003
+    100208: thigh.L
+    100210: thigh.R
+    100212: thumb.01.L
+    100214: thumb.01.R
+    100216: thumb.02.L
+    100218: thumb.02.R
+    100220: thumb.03.L
+    100222: thumb.03.L_end
+    100224: thumb.03.R
+    100226: thumb.03.R_end
+    100228: toe.L
+    100230: toe.L_end
+    100232: toe.R
+    100234: toe.R_end
+    100236: upper_arm.L
+    100238: upper_arm.R
     400000: Camera
     400002: //RootNode
     400004: chest
@@ -131,8 +187,74 @@ ModelImporter:
     400122: toe_R
     400124: upper_arm_L
     400126: upper_arm_R
+    400128: Cube.001
+    400130: Cube.002
+    400132: Cube.003
+    400134: Cylinder.001
+    400136: Cylinder.002
+    400138: f_index.01.L
+    400140: f_index.01.R
+    400142: f_index.02.L
+    400144: f_index.02.L_end
+    400146: f_index.02.R
+    400148: f_index.02.R_end
+    400150: f_middle.01.L
+    400152: f_middle.01.R
+    400154: f_middle.02.L
+    400156: f_middle.02.L_end
+    400158: f_middle.02.R
+    400160: f_middle.02.R_end
+    400162: foot.L
+    400164: foot.R
+    400166: forearm.L
+    400168: forearm.R
+    400170: gun.L
+    400172: gun.L_end
+    400174: gun.R
+    400176: gun.R_end
+    400178: HairBone_end
+    400180: hand.L
+    400182: hand.R
+    400184: palm.01.L
+    400186: palm.01.R
+    400188: palm.02.L
+    400190: palm.02.R
+    400192: Plane.001
+    400194: shin.L
+    400196: shin.R
+    400198: shoulder.L
+    400200: shoulder.R
+    400202: Sphere.001
+    400204: Sphere.002
+    400206: Sphere.003
+    400208: thigh.L
+    400210: thigh.R
+    400212: thumb.01.L
+    400214: thumb.01.R
+    400216: thumb.02.L
+    400218: thumb.02.R
+    400220: thumb.03.L
+    400222: thumb.03.L_end
+    400224: thumb.03.R
+    400226: thumb.03.R_end
+    400228: toe.L
+    400230: toe.L_end
+    400232: toe.R
+    400234: toe.R_end
+    400236: upper_arm.L
+    400238: upper_arm.R
     2000000: Camera
     2100000: unnamed
+    2100002: Boots
+    2100004: UpperClothes
+    2100006: LowerClothes
+    2100008: CanCube
+    2100010: SpaceGun
+    2100012: EnergyGun
+    2100014: CanHair
+    2100016: Goggles
+    2100018: Face_Mat
+    2100020: Material
     4300000: Sphere_001
     4300002: Cylinder_001
     4300004: Plane_001
@@ -146,7 +268,17 @@ ModelImporter:
     4300020: Icosphere
     4300022: Cylinder_002
     4300024: Sphere_003
+    4300026: Sphere.001
+    4300028: Cylinder.001
+    4300030: Plane.001
+    4300032: Cube.003
+    4300034: Cube.002
+    4300036: Cube.001
+    4300038: Sphere.002
+    4300040: Cylinder.002
+    4300042: Sphere.003
     7400000: Take 001
+    7400002: Default Take
     9500000: //RootNode
     10800000: Point
     10800002: Spot
@@ -164,6 +296,15 @@ ModelImporter:
     13700020: Sphere_001
     13700022: Sphere_002
     13700024: Sphere_003
+    13700026: Cube.001
+    13700028: Cube.002
+    13700030: Cube.003
+    13700032: Cylinder.001
+    13700034: Cylinder.002
+    13700036: Plane.001
+    13700038: Sphere.001
+    13700040: Sphere.002
+    13700042: Sphere.003
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -215,7 +356,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 1

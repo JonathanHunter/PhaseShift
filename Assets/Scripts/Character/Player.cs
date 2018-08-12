@@ -50,7 +50,7 @@
                 return;
 
             if (!this.inTrigger)
-                this.foot.layer = LayerMask.NameToLayer("Phase");
+                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.Player.ToString());
 
             this.inTrigger = false;
             this.currentState = this.mapper.GetCurrentState();
@@ -66,19 +66,29 @@
 
         private void OnTriggerEnter(Collider collision)
         {
-            this.foot.layer = LayerMask.NameToLayer("Ground");
-            this.inTrigger = true;
+            if (collision.gameObject.tag == Enums.Tags.Space.ToString())
+            {
+                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.PlayerPhase.ToString());
+                this.inTrigger = true;
+            }
         }
 
         private void OnTriggerStay(Collider collision)
         {
-            this.foot.layer = LayerMask.NameToLayer("Ground");
-            this.inTrigger = true;
+            if (collision.gameObject.tag == Enums.Tags.Space.ToString())
+            {
+                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.PlayerPhase.ToString());
+                this.inTrigger = true;
+            }
         }
 
         private void OnTriggerExit(Collider collision)
         {
-            this.foot.layer = LayerMask.NameToLayer("Phase");
+            if (collision.gameObject.tag == Enums.Tags.Space.ToString())
+            {
+                this.foot.layer = LayerMask.NameToLayer(Enums.Layers.Player.ToString());
+                this.inTrigger = true;
+            }
         }
 
         private bool InAirCheck()

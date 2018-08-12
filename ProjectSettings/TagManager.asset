@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerBullet
+  - Space
   - Enemy
   - EnemyBullet
   layers:
@@ -17,14 +18,14 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Player
-  - Ground
+  - Static
   - Phase
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Space
+  - Player
+  - PlayerPhase
+  - PlayerBullet
+  - Enemy
+  - EnemyPhase
   - 
   - 
   - 

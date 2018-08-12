@@ -41,7 +41,7 @@
 
             this.inTrigger = false;
             if (this.health <= 0)
-                ReturnEnemy();
+                Death();
 
             LocalUpdate();
         }
@@ -49,7 +49,10 @@
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag == Enums.Tags.PlayerBullet.ToString())
+            {
                 this.health--;
+                TakeDamage();
+            }
         }
 
         private void OnTriggerEnter(Collider collision)
@@ -121,6 +124,11 @@
             Destroy(this.gameObject);
         }
 
+        protected virtual void Death()
+        {
+            ReturnEnemy();
+        }
+
         protected void ReturnEnemy()
         {
             EnemyPool.Instance.ReturnEnemy(this.type, this.gameObject);
@@ -136,5 +144,6 @@
         protected abstract void LocalDeallocate();
         /// <summary> Local Delete for subclasses. </summary>
         protected abstract void LocalDelete();
+        protected abstract void TakeDamage();
     }
 }

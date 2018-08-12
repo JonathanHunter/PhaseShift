@@ -37,9 +37,9 @@
             rawSign[(int)UserInput.Accept] = 1;
             rawSign[(int)UserInput.Cancel] = 1;
             rawSign[(int)UserInput.LookUp] = 1;
-            rawSign[(int)UserInput.LookLeft] = 1;
+            rawSign[(int)UserInput.LookLeft] = -1;
             rawSign[(int)UserInput.LookRight] = 1;
-            rawSign[(int)UserInput.LookDown] = 1;
+            rawSign[(int)UserInput.LookDown] = -1;
         }
 
         /// <summary> 

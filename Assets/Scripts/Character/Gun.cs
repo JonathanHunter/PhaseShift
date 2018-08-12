@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using UnityEngine;
+    using Bullets;
     using Util;
 
     public class Gun : MonoBehaviour
@@ -14,6 +15,8 @@
         private AnimationClip[] aim;
         [SerializeField]
         private AnimationClip[] shoot;
+        [SerializeField]
+        private Transform barrel;
         [SerializeField]
         private float shotTime;
         [SerializeField]
@@ -57,11 +60,14 @@
 
         private void Update()
         {
+            if (Managers.GameManager.Instance.IsPaused)
+                return;
+
             bool shouldAim = ShouldAim();
             if (shouldAim)
             {
                 this.aimDir = GetAimDir();
-                //CalculateClipSet(Vector2.Angle(Vector2.right, this.aimDir));
+                //CalculateClipSet(Vector2.SignedAngle(Vector2.right, this.aimDir));
             }
 
             bool shouldShoot = false;
@@ -165,13 +171,23 @@
             {
                 if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
                 {
-                    Debug.Log("bang bang");
-                    this.shotTimer = this.shotTime;
+                    GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Basic);
+                    if (b != null)
+                    {
+                        b.transform.position = this.barrel.position;
+                        b.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, this.aimDir));
+                        this.shotTimer = this.shotTime;
+                    }
                 }
                 else if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1))
                 {
-                    Debug.Log("BANG");
-                    this.shotTimer = this.spaceTime;
+                    GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Basic);
+                    if (b != null)
+                    {
+                        b.transform.position = this.barrel.position;
+                        b.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, this.aimDir));
+                        this.shotTimer = this.spaceTime;
+                    }
                 }
             }
         }

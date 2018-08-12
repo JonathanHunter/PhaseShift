@@ -46,12 +46,14 @@
 
         private void Update()
         {
+            if (Managers.GameManager.Instance.IsPaused)
+                return;
+
             if (!this.inTrigger)
                 this.foot.layer = LayerMask.NameToLayer("Phase");
 
             this.inTrigger = false;
             this.currentState = this.mapper.GetCurrentState();
-            //Debug.Log(this.rgbdy.velocity.y);
             this.anim.SetBool(this.inAir, InAirCheck());
             switch (this.currentState)
             {

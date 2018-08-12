@@ -25,7 +25,7 @@
 
         protected override void LocalUpdate()
         {
-            this.rgbdy.velocity = this.transform.forward * speed;
+            this.rgbdy.velocity = this.transform.right * speed;
         }
 
         protected override void LocalDeallocate()

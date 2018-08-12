@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: 97846e783933cdd4c81090591de29367
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Clamp
+    100002: ConcreteIncline
+    100004: ConcreteVertical
+    100006: Cylinder.008
+    100008: Duct
+    100010: Metal
+    100012: Paneling
+    100014: //RootNode
+    100016: PipeCap
+    100018: PipeConnector
+    100020: PipeElbow
+    100022: PipeHalf
+    100024: PipeHorizontal
+    100026: PipeSlanted
+    100028: PipeTopSlantJoint
+    100030: PipeVertical
+    100032: Sign
+    100034: SpongeSingle
+    100036: Sun
+    100038: VEnt
+    400000: Clamp
+    400002: ConcreteIncline
+    400004: ConcreteVertical
+    400006: Cylinder.008
+    400008: Duct
+    400010: Metal
+    400012: Paneling
+    400014: //RootNode
+    400016: PipeCap
+    400018: PipeConnector
+    400020: PipeElbow
+    400022: PipeHalf
+    400024: PipeHorizontal
+    400026: PipeSlanted
+    400028: PipeTopSlantJoint
+    400030: PipeVertical
+    400032: Sign
+    400034: SpongeSingle
+    400036: Sun
+    400038: VEnt
+    2100000: No Name
+    2300000: Clamp
+    2300002: ConcreteIncline
+    2300004: ConcreteVertical
+    2300006: Cylinder.008
+    2300008: Duct
+    2300010: Metal
+    2300012: Paneling
+    2300014: PipeCap
+    2300016: PipeConnector
+    2300018: PipeElbow
+    2300020: PipeHalf
+    2300022: PipeHorizontal
+    2300024: PipeSlanted
+    2300026: PipeTopSlantJoint
+    2300028: PipeVertical
+    2300030: Sign
+    2300032: SpongeSingle
+    2300034: VEnt
+    3300000: Clamp
+    3300002: ConcreteIncline
+    3300004: ConcreteVertical
+    3300006: Cylinder.008
+    3300008: Duct
+    3300010: Metal
+    3300012: Paneling
+    3300014: PipeCap
+    3300016: PipeConnector
+    3300018: PipeElbow
+    3300020: PipeHalf
+    3300022: PipeHorizontal
+    3300024: PipeSlanted
+    3300026: PipeTopSlantJoint
+    3300028: PipeVertical
+    3300030: Sign
+    3300032: SpongeSingle
+    3300034: VEnt
+    4300000: SpongeSingle
+    4300002: ConcreteIncline
+    4300004: Clamp
+    4300006: PipeElbow
+    4300008: PipeVertical
+    4300010: PipeTopSlantJoint
+    4300012: Cylinder.008
+    4300014: PipeHorizontal
+    4300016: PipeCap
+    4300018: PipeConnector
+    4300020: PipeSlanted
+    4300022: PipeHalf
+    4300024: Duct
+    4300026: Metal
+    4300028: Sign
+    4300030: VEnt
+    4300032: Paneling
+    4300034: ConcreteVertical
+    10800000: Sun
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

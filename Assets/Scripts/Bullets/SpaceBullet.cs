@@ -20,9 +20,12 @@
         private float shrinkSpeed;
         [SerializeField]
         private GameObject ball;
+        [SerializeField]
+        private float customGravity = -9.81f;
 
         private bool isDetonated;
         private bool doOnce;
+        private bool usesCustomGravity;
         private float currentSize;
         private float originalSize;
 
@@ -32,7 +35,7 @@
             this.transform.localScale = Vector3.one * this.detonationSize;
             this.currentSize = this.detonationSize;
             this.rgbdy.velocity = Vector3.zero;
-            this.rgbdy.useGravity = false;
+            usesCustomGravity = false;
             this.ball.SetActive(false);
         }
 
@@ -44,7 +47,7 @@
         protected override void LocalReInitialize()
         {
             this.transform.localScale = Vector3.one * this.originalSize;
-            this.rgbdy.useGravity = true;
+            usesCustomGravity = true;
             this.ball.SetActive(true);
             this.doOnce = false;
             this.isDetonated = false;
@@ -66,6 +69,11 @@
                     ReturnBullet();
                 else
                     this.transform.localScale = Vector3.one * this.currentSize;
+            }
+            if (usesCustomGravity)
+            {
+                Vector3 gravity = customGravity * Vector3.up;
+                this.rgbdy.AddForce(gravity, ForceMode.Acceleration);
             }
         }
 

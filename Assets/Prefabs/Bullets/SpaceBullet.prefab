@@ -185,13 +185,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9307ee7744d84459de1c3cc92d25d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
+  lifeTime: 1
   type: 1
-  speed: 7
+  speed: 6.5
   rgbdy: {fileID: 54274080971838916}
-  detonationSize: 10
-  shrinkSpeed: 0.5
+  detonationSize: 3
+  shrinkSpeed: 1
   ball: {fileID: 1762108181309678}
+  customGravity: -9.81
 --- !u!135 &135512038836609346
 SphereCollider:
   m_ObjectHideFlags: 1

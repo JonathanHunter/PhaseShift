@@ -1929,8 +1929,8 @@ MonoBehaviour:
   foot: {fileID: 1076439865424840}
   anim: {fileID: 95892258757845152}
   animatorLayer: Base Layer
-  speed: 3
-  jumpSpeed: 3
+  speed: 5
+  jumpSpeed: 9
 --- !u!137 &137007886638368786
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

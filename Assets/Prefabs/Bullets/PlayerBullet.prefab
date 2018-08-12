@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 1
   type: 0
-  speed: 5
+  speed: 10
   rgbdy: {fileID: 54274080971838916}
 --- !u!135 &135512038836609346
 SphereCollider:

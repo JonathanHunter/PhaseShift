@@ -24,15 +24,34 @@
 
         /// <summary> Tracks the remaing time for the bullet to exist in the scene. </summary>
         protected float currentLifeTime = 0;
+        private bool wasPaused;
+        private Vector3 oldVel;
 
         private void Update()
         {
             if (Managers.GameManager.Instance.IsPaused)
             {
+                if (!this.wasPaused)
+                {
+                    Rigidbody r = this.GetComponent<Rigidbody>();
+                    if (r != null)
+                    {
+                        this.oldVel = r.velocity;
+                        r.velocity = Vector3.zero;
+                    }
+
+                    this.wasPaused = true;
+                }
+
+                return;
+            }
+
+            if (this.wasPaused)
+            {
                 Rigidbody r = this.GetComponent<Rigidbody>();
                 if (r != null)
-                    r.velocity = Vector3.zero;
-                return;
+                    r.velocity = this.oldVel;
+                this.wasPaused = false;
             }
 
             LocalUpdate();

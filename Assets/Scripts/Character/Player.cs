@@ -25,6 +25,8 @@
         private int inAir;
         private int jump;
         private bool inTrigger;
+        private bool wasPaused;
+        private Vector3 oldVel;
 
         private void Start()
         {
@@ -47,7 +49,22 @@
         private void Update()
         {
             if (Managers.GameManager.Instance.IsPaused)
+            {
+                if (!this.wasPaused)
+                {
+                    this.oldVel = this.rgbdy.velocity;
+                    this.rgbdy.velocity = Vector3.zero;
+                    this.wasPaused = true;
+                }
+
                 return;
+            }
+
+            if(this.wasPaused)
+            {
+                this.rgbdy.velocity = this.oldVel;
+                this.wasPaused = false;
+            }
 
             if (!this.inTrigger)
                 this.foot.layer = (int)Enums.Layers.Player;

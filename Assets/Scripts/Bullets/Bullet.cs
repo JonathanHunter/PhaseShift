@@ -23,7 +23,7 @@
         private int referenceIndex = 0;
 
         /// <summary> Tracks the remaing time for the bullet to exist in the scene. </summary>
-        private float currentLifeTime = 0;
+        protected float currentLifeTime = 0;
 
         private void Update()
         {

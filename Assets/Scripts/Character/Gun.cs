@@ -30,6 +30,7 @@
         private State currentState;
         private Vector2 aimDir;
         private Vector3 mousePos;
+        private SpaceBullet prevBullet;
         private int currentClipSet;
         private int aimHash;
         private int shootHash;
@@ -75,6 +76,16 @@
                 this.shotTimer -= Time.deltaTime;
             if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1) || CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
                 shouldShoot = true;
+
+            if (CustomInput.BoolFreshPress(CustomInput.UserInput.Shoot1))
+            {
+                if (this.prevBullet != null && this.prevBullet.gameObject.activeSelf)
+                {
+                    this.prevBullet.Detonate();
+                    this.prevBullet = null;
+                    this.shotTimer = this.spaceTime / 2f;
+                }
+            }
 
             this.anim.SetBool(this.aimHash, shouldAim);
             this.anim.SetBool(this.shootHash, shouldShoot);
@@ -181,12 +192,16 @@
                 }
                 else if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1))
                 {
-                    GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Basic);
-                    if (b != null)
+                    if (this.prevBullet == null || !this.prevBullet.gameObject.activeSelf)
                     {
-                        b.transform.position = this.barrel.position;
-                        b.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, this.aimDir));
-                        this.shotTimer = this.spaceTime;
+                        GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Space);
+                        if (b != null)
+                        {
+                            b.transform.position = this.barrel.position;
+                            b.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, this.aimDir));
+                            this.prevBullet = b.GetComponent<SpaceBullet>();
+                            this.shotTimer = this.spaceTime;
+                        }
                     }
                 }
             }

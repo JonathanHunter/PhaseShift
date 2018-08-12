@@ -54,8 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPools:
   - {fileID: 114690911913297912, guid: 5773cb960092fd84293d788f3f7e50d6, type: 2}
-  - {fileID: 114690911913297912, guid: 5773cb960092fd84293d788f3f7e50d6, type: 2}
-  bulletPoolSizes: 0300000014000000
+  - {fileID: 114222377726547470, guid: 47283cbc2fc77bf468670377a6906bdd, type: 2}
+  bulletPoolSizes: 6400000005000000
 --- !u!114 &114781575045399764
 MonoBehaviour:
   m_ObjectHideFlags: 1

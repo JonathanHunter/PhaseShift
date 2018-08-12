@@ -1130,7 +1130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1847116701258872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4540924422116070}
@@ -1932,7 +1932,15 @@ MonoBehaviour:
   anim: {fileID: 95892258757845152}
   animatorLayer: Weapon
   aim: []
-  shoot: []
+  shoot:
+  - {fileID: 7400000, guid: efbde0ef888d6fe428f8f78e63440ac3, type: 2}
+  - {fileID: 7400000, guid: 8995a910f54b15f46a24f0451cbd821c, type: 2}
+  - {fileID: 7400000, guid: 0a748317441e5094b8aa511eb63815d0, type: 2}
+  - {fileID: 7400000, guid: a988ff191359c5b40b0f80ba3ee0e1aa, type: 2}
+  - {fileID: 7400000, guid: 876b869ecd33cab489a492963c90161a, type: 2}
+  - {fileID: 7400000, guid: d0a728b8794e913418a82932580f3eae, type: 2}
+  - {fileID: 7400000, guid: 725ca2ef110108142b945d974bb63589, type: 2}
+  - {fileID: 7400000, guid: 1719b85b8c0578746ba302ff3e5230bb, type: 2}
   barrel: {fileID: 4197518964767026}
   shotTime: 0.05
   spaceTime: 1
@@ -1963,7 +1971,7 @@ MonoBehaviour:
   foot: {fileID: 1212320661851920}
   anim: {fileID: 95892258757845152}
   animatorLayer: Base Layer
-  speed: 5
+  speed: 3
   jumpSpeed: 3
 --- !u!137 &137007886638368786
 SkinnedMeshRenderer:

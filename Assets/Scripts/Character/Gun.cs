@@ -67,13 +67,13 @@
             if (shouldAim)
             {
                 this.aimDir = GetAimDir();
-                //CalculateClipSet(Vector2.SignedAngle(Vector2.right, this.aimDir));
+                CalculateClipSet(Vector2.SignedAngle(Vector2.right, this.aimDir));
             }
 
             bool shouldShoot = false;
             if (this.shotTimer > 0)
                 this.shotTimer -= Time.deltaTime;
-            else if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1) || CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
+            if (CustomInput.BoolHeld(CustomInput.UserInput.Shoot1) || CustomInput.BoolHeld(CustomInput.UserInput.Shoot2))
                 shouldShoot = true;
 
             this.anim.SetBool(this.aimHash, shouldAim);
@@ -150,7 +150,7 @@
 
             if (clip != this.currentClipSet)
             {
-                this.animOverride.OverrideClip(this.aim[0], this.aim[clip]);
+                //this.animOverride.OverrideClip(this.aim[0], this.aim[clip]);
                 this.animOverride.OverrideClip(this.shoot[0], this.shoot[clip]);
                 this.animOverride.ApplyOverrides();
                 this.currentClipSet = clip;

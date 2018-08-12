@@ -42,6 +42,14 @@ inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
 
  float3 _Position0; // from script
  float3 _Position1; // from script
+ float3 _Position2; // from script
+ float3 _Position3; // from script
+ float3 _Position4; // from script
+ float3 _Position5; // from script
+ float3 _Position6; // from script
+ float3 _Position7; // from script
+ float3 _Position8; // from script
+ float3 _Position9; // from script
 
 sampler2D _MainTex, _SecondTex;
 float4 _Color, _Color2;
@@ -81,7 +89,19 @@ void surf (Input IN, inout SurfaceOutput o) {
 	// distance influencer position to world position
 	float3 dis0 = distance(_Position0, IN.worldPos);
 	float3 dis1 = distance(_Position1, IN.worldPos);
-	float3 sphere = 1 - saturate(min(dis0,dis1) / _Radius);
+	float3 dis2 = distance(_Position2, IN.worldPos);
+	float3 dis3 = distance(_Position3, IN.worldPos);
+	float3 dis4 = distance(_Position4, IN.worldPos);
+	float3 dis5 = distance(_Position5, IN.worldPos);
+	float3 dis6 = distance(_Position6, IN.worldPos);
+	float3 dis7 = distance(_Position7, IN.worldPos);
+	float3 dis8 = distance(_Position8, IN.worldPos);
+	float3 dis9 = distance(_Position9, IN.worldPos);
+
+	float3 minimum = min10(dis0, dis1, dis2, dis3, dis4, dis5, dis6, dis7, dis8, dis9);
+
+
+	float3 sphere = 1 - saturate(minimum / _Radius);
  
 	float3 sphereNoise = noisetexture.r * sphere;
 

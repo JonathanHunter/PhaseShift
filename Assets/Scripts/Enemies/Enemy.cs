@@ -62,6 +62,12 @@
                 this.gameObject.layer = (int)this.phaseLayer;
                 this.inTrigger = true;
             }
+
+            if (collision.gameObject.tag == Enums.Tags.PlayerBullet.ToString())
+            {
+                this.health--;
+                TakeDamage();
+            }
         }
 
         private void OnTriggerStay(Collider collision)

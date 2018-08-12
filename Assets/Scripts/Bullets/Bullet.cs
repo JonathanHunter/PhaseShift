@@ -47,6 +47,12 @@
             this.currentLifeTime = 0;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.tag != Util.Enums.Tags.Space.ToString())
+                this.currentLifeTime = 0;
+        }
+
         public IPoolable SpawnCopy(int referenceIndex)
         {
             Bullet bullet = Instantiate<Bullet>(this);

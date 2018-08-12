@@ -14,7 +14,7 @@
         /// <summary> The type of bullet this is.  (Object pooling management) </summary>
         [SerializeField]
         [Tooltip("The type of bullet this is.  (Object pooling management)")]
-        private BulletPool.BulletTypes type = BulletPool.BulletTypes.Player;
+        private BulletPool.BulletTypes type = BulletPool.BulletTypes.Basic;
 
         /// <summary> The type of bullet this is.  (Object pooling management) </summary>
         public BulletPool.BulletTypes Type { get { return this.type; } }
@@ -27,6 +27,14 @@
 
         private void Update()
         {
+            if (Managers.GameManager.Instance.IsPaused)
+            {
+                Rigidbody r = this.GetComponent<Rigidbody>();
+                if (r != null)
+                    r.velocity = Vector3.zero;
+                return;
+            }
+
             LocalUpdate();
             if ((this.currentLifeTime -= Time.deltaTime) <= 0)
             {

@@ -21,7 +21,7 @@
         /// Enemy: Enemy pistol bullets
         /// EnemySpiper: Enemy sniper bullets
         /// </summary>
-        public enum BulletTypes { Player, Enemy, EnemySniper }
+        public enum BulletTypes { Basic, Space, Enemy}
 
         /// <summary> Singleton instance for this object pool. </summary>
         public static BulletPool Instance { get; private set; }

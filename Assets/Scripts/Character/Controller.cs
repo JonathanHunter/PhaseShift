@@ -19,6 +19,9 @@
 
         private void Update()
         {
+            if (Managers.GameManager.Instance.IsPaused)
+                return;
+
             this.anim.SetBool(this.move, (CustomInput.BoolHeld(CustomInput.UserInput.Left) || CustomInput.BoolHeld(CustomInput.UserInput.Right)));
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Jump))
                 this.anim.SetTrigger(this.jump);

@@ -68,5 +68,10 @@
             IPoolable entity = bullet.GetComponent<IPoolable>();
             DeallocateEntity(this.bulletPools[(int)type], entity);
         }
+
+        public Transform[] GetSpaceBullets()
+        {
+            return GetTransforms(this.bulletPools[(int)BulletTypes.Space]);
+        }
     }
 }

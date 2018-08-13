@@ -84,5 +84,16 @@
 
             this.objectPools.Add(templet, pool);
         }
+
+        protected Transform[] GetTransforms(IPoolable templet)
+        {
+            Transform[] t = new Transform[this.objectPools[templet].Length];
+            for(int i = 0; i < t.Length; i++)
+            {
+                t[i] = this.objectPools[templet][i].Entity.GetGameObject().transform;
+            }
+
+            return t;
+        }
     }
 }

@@ -19,7 +19,7 @@
         private GameState currentState;
         private static GameManager instance;
 
-        private void Start()
+        private void Awake()
         {
             instance = this;
             this.currentState = GameState.Playing;

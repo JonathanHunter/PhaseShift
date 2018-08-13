@@ -26,6 +26,12 @@
         protected float currentLifeTime = 0;
         private bool wasPaused;
         private Vector3 oldVel;
+        private Vector3 defaultPosition;
+
+        private void Start()
+        {
+            defaultPosition = new Vector3(-9999, -9999, -9999);
+        }
 
         private void Update()
         {
@@ -105,6 +111,7 @@
         {
             LocalDeallocate();
             this.gameObject.SetActive(false);
+            transform.position = defaultPosition;
         }
 
         public void Delete()

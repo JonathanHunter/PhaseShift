@@ -5,6 +5,10 @@
 
     public class Turret : Enemy
     {
+        /// <summary> The rigidbody for this enemy. </summary>
+        [SerializeField]
+        [Tooltip("The rigidbody for this enemy.")]
+        private Rigidbody rgbdy;
         [SerializeField]
         private float shotTime;
         [SerializeField]
@@ -28,6 +32,7 @@
 
         protected override void LocalUpdate()
         {
+            this.rgbdy.velocity = Vector3.zero;
             if(this.size > 1)
             {
                 this.size -= Time.deltaTime;

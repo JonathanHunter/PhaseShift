@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverImage: {fileID: 0}
+  menu: Menu
   col: {fileID: 136099091634766110}
 --- !u!136 &136099091634766110
 CapsuleCollider:

@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  maxHealth: 60
+  maxHealth: 15
   rgbdy: {fileID: 54884281109039836}
   shotTime: 1
   barrel: {fileID: 4370397270756010}

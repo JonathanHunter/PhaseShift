@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  maxHealth: 30
+  maxHealth: 10
   speed: 3
   rgbdy: {fileID: 54337988841391116}
   anim: {fileID: 95140730271739978}

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TestWorldDissolve
+  m_Name: TestWorldDissolveTriplanar
   m_Shader: {fileID: 4800000, guid: 53492cf12e6a4b645a0dcabb35fff83f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

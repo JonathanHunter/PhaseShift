@@ -387,18 +387,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 4561981454781478, guid: 257d8304bbe453246abae5cf260d9bea, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 99.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561981454781478, guid: 257d8304bbe453246abae5cf260d9bea, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 99.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561981454781478, guid: 257d8304bbe453246abae5cf260d9bea, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 99.9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 257d8304bbe453246abae5cf260d9bea, type: 2}
   m_IsPrefabParent: 0
@@ -996,7 +984,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4424560492187810, guid: c46a309c108e1454591fe54f45e386a1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.95
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 4424560492187810, guid: c46a309c108e1454591fe54f45e386a1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2212,6 +2200,16 @@ Prefab:
       propertyPath: skateSound
       value: 
       objectReference: {fileID: 1361299764}
+    - target: {fileID: 114876941576677482, guid: 7c94af7262992a142b0b743366e016ee,
+        type: 2}
+      propertyPath: speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114876941576677482, guid: 7c94af7262992a142b0b743366e016ee,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c94af7262992a142b0b743366e016ee, type: 2}
   m_IsPrefabParent: 0

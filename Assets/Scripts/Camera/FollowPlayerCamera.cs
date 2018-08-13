@@ -78,6 +78,6 @@ public class FollowPlayerCamera : MonoBehaviour {
 
     void UpdateBackgroundParallax()
     {
-        background.SetTextureOffset("_MainTex", new Vector2(transform.position.x * parallaxSpeed, transform.position.y * parallaxSpeed * -1));
+        background.SetTextureOffset("_MainTex", new Vector2(transform.position.x * parallaxSpeed * -1, transform.position.y * parallaxSpeed * -1));
     }
 }

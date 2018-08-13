@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4540924422116070}
-  - component: {fileID: 65519171459413868}
+  - component: {fileID: 136028405221389664}
   - component: {fileID: 54758743549136052}
   - component: {fileID: 114876941576677482}
   - component: {fileID: 114793566838811900}
@@ -1395,7 +1395,7 @@ Transform:
   m_GameObject: {fileID: 1076439865424840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.21, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4687949579423540}
   - {fileID: 4197518964767026}
@@ -1558,7 +1558,7 @@ Transform:
   m_GameObject: {fileID: 1331890558171662}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.65, z: 0}
-  m_LocalScale: {x: 55, y: 55, z: 55}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children:
   - {fileID: 4211654871081872}
   - {fileID: 4184289239708876}
@@ -1846,18 +1846,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &65519171459413868
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076439865424840}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.3, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95892258757845152
 Animator:
   serializedVersion: 3
@@ -1926,11 +1914,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rgbdy: {fileID: 54758743549136052}
-  foot: {fileID: 1076439865424840}
+  phaser: {fileID: 1076439865424840}
+  col: {fileID: 136028405221389664}
   anim: {fileID: 95892258757845152}
   animatorLayer: Base Layer
   speed: 5
   jumpSpeed: 9
+--- !u!136 &136028405221389664
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076439865424840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!137 &137007886638368786
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -36,7 +36,7 @@
 		float3 _Position8; // from script
 		float3 _Position9; // from script
 
-		loat1 _Scale0; // from script
+		float1 _Scale0; // from script
 		float1 _Scale1; // from script
 		float1 _Scale2; // from script
 		float1 _Scale3; // from script
@@ -141,12 +141,15 @@
 			float3 DissolveLine = step(sphereNoise - _DisLineWidth, _DisAmount) * step(_DisAmount, sphereNoise); // line between two textures
 			DissolveLine *= _DisLineColor; // color the line
 
+										   //Rim Stuff
+			float rimPower = pow(abs(1 - dot(IN.viewDir, IN.worldNormal)) * _RimPower, _RimLevel * 10);
+
 			float3 primaryTex = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.rgb);
 			float3 secondaryTex = (step(_DisAmount, sphereNoise) * c2.rgb);
 			float3 resultTex = primaryTex + secondaryTex + DissolveLine;
 			o.Albedo = resultTex;
 			
-
+			o.Albedo += max(1 - minimum, 0) * rimPower;
 			float3 primaryAlpha = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.a);
 			float3 secondaryAlpha = (step(_DisAmount, sphereNoise) * c2.a);
 			float3 resultAlpha = primaryAlpha + secondaryAlpha + DissolveLine;

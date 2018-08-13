@@ -12,6 +12,9 @@
 		_DisLineWidth("Line Width", Range(0, 2)) = 0
 		_DisLineColor("Line Tint", Color) = (1,1,1,1)
 
+		_RimPower("Glow Strength", Range(0.5,8.0)) = 3.0
+		_RimLevel("Rim Visibility Level", Range(0,1)) = 1.0
+
 		[Toggle] _useLayer2("Swap Primary and Secondary Texture slots", Float) = 0
 	}
 	SubShader {
@@ -20,7 +23,7 @@
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows alpha:fade
+		#pragma surface surf Standard fullforwardshadows alpha:fade vertex:vert
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
@@ -54,12 +57,16 @@
 		float _DisLineWidth;
 		float4 _DisLineColor;
 		float _Radius;
+		float _RimLevel;
+		float _RimPower;
 		float _useLayer2;
 
 		struct Input {
 			float2 uv_MainTex : TEXCOORD0;
 			float3 worldPos;// built in value to use the world space position
 			float3 worldNormal; // built in value for world normal
+			float3 viewDir; //Built in value for active camera view direction.
+			float3 localNormal; //Meant to capture local normal from vert
 		};
 
 		float3 min10(float3 dis0, float3 dis1, float3 dis2, float3 dis3, float3 dis4, float3 dis5, float3 dis6, float3 dis7, float3 dis8, float3 dis9)
@@ -73,6 +80,12 @@
 		UNITY_INSTANCING_BUFFER_START(Props)
 			// put more per-instance properties here
 		UNITY_INSTANCING_BUFFER_END(Props)
+
+		void vert(inout appdata_full v, out Input data)
+		{
+			UNITY_INITIALIZE_OUTPUT(Input, data);
+			data.localNormal = v.normal.xyz;
+		}
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			half4 c;
@@ -122,11 +135,17 @@
 			float3 DissolveLine = step(sphereNoise - _DisLineWidth, _DisAmount) * step(_DisAmount, sphereNoise); // line between two textures
 			DissolveLine *= _DisLineColor; // color the line
 
+			//Rim Stuff
+			float rimPower = pow(abs(1 - dot(IN.viewDir, IN.worldNormal)) * _RimPower, _RimLevel * 10);
+
 			float3 primaryTex = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.rgb);
 			float3 secondaryTex = (step(_DisAmount, sphereNoise) * c2.rgb);
+
+
 			float3 resultTex = primaryTex + secondaryTex + DissolveLine;
 			o.Albedo = resultTex;
 
+			o.Albedo += max(1 - minimum, 0) * rimPower;
 			float3 primaryAlpha = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.a);
 			float3 secondaryAlpha = (step(_DisAmount, sphereNoise) * c2.a);
 			float3 resultAlpha = primaryAlpha + secondaryAlpha + DissolveLine;
@@ -134,6 +153,8 @@
 			o.Emission = DissolveLine;
 			o.Alpha = resultAlpha;
 		}
+
+
 		ENDCG
 	}
 	FallBack "Diffuse"

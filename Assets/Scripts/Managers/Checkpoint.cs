@@ -9,6 +9,7 @@
 
         [SerializeField]
         private Collider col;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == Util.Enums.Tags.Player.ToString())

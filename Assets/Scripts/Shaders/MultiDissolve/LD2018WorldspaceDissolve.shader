@@ -140,8 +140,6 @@
 
 			float3 primaryTex = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.rgb);
 			float3 secondaryTex = (step(_DisAmount, sphereNoise) * c2.rgb);
-
-
 			float3 resultTex = primaryTex + secondaryTex + DissolveLine;
 			o.Albedo = resultTex;
 

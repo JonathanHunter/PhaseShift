@@ -175,12 +175,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &16511639 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1076439865424840, guid: 7c94af7262992a142b0b743366e016ee,
+    type: 2}
+  m_PrefabInternal: {fileID: 1958117798}
 --- !u!114 &16511642 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114876941576677482, guid: 7c94af7262992a142b0b743366e016ee,
     type: 2}
   m_PrefabInternal: {fileID: 1958117798}
   m_Script: {fileID: 11500000, guid: fcaaf35a30a145d448afac0a77aa43e5, type: 3}
+--- !u!65 &16511644 stripped
+BoxCollider:
+  m_PrefabParentObject: {fileID: 65519171459413868, guid: 7c94af7262992a142b0b743366e016ee,
+    type: 2}
+  m_PrefabInternal: {fileID: 1958117798}
 --- !u!1 &90325670 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1195032294078702, guid: 71ecbea5a054e164281d442abba65eb2,
@@ -1045,6 +1055,16 @@ Prefab:
       propertyPath: m_Constraints
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 114876941576677482, guid: 7c94af7262992a142b0b743366e016ee,
+        type: 2}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 16511644}
+    - target: {fileID: 114876941576677482, guid: 7c94af7262992a142b0b743366e016ee,
+        type: 2}
+      propertyPath: phaser
+      value: 
+      objectReference: {fileID: 16511639}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c94af7262992a142b0b743366e016ee, type: 2}
   m_IsPrefabParent: 0

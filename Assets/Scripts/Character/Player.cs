@@ -9,7 +9,9 @@
         [SerializeField]
         private Rigidbody rgbdy;
         [SerializeField]
-        private GameObject foot;
+        private GameObject phaser;
+        [SerializeField]
+        private Collider col;
         [SerializeField]
         private Animator anim;
         [SerializeField]
@@ -19,13 +21,15 @@
         [SerializeField]
         private float jumpSpeed;
 
-        private enum State { Idle, Move, Jump, Fall }
+        private enum State { Idle, Move, Jump, Fall, Death }
         private State currentState;
         private AnimationStateMapper<State> mapper;
-        private int inAir;
-        private int jump;
+        private int inAirHash;
+        private int jumpHash;
+        private int deathHash;
         private bool inTrigger;
         private bool wasPaused;
+        private bool died;
         private Vector3 oldVel;
 
         private void Start()
@@ -37,13 +41,16 @@
                     this.animatorLayer + ".Idle",
                     this.animatorLayer + ".Move",
                     this.animatorLayer + ".Jump",
-                    this.animatorLayer + ".Fall"
+                    this.animatorLayer + ".Fall",
+                    this.animatorLayer + ".Death"
                 }, 
                 this.anim,
                 layerIndex);
-            this.inAir = Animator.StringToHash("InAir");
-            this.jump = Animator.StringToHash("Jump");
+            this.inAirHash = Animator.StringToHash("InAir");
+            this.jumpHash = Animator.StringToHash("Jump");
+            this.deathHash = Animator.StringToHash("Death");
             this.inTrigger = false;
+            this.died = false;
         }
 
         private void Update()
@@ -67,17 +74,28 @@
             }
 
             if (!this.inTrigger)
-                this.foot.layer = (int)Enums.Layers.Player;
+                this.phaser.layer = (int)Enums.Layers.Player;
 
             this.inTrigger = false;
             this.currentState = this.mapper.GetCurrentState();
-            this.anim.SetBool(this.inAir, InAirCheck());
+            this.anim.SetBool(this.inAirHash, InAirCheck());
             switch (this.currentState)
             {
                 case State.Idle: Idle(); break;
                 case State.Move: Move(); break;
                 case State.Jump: Jump(); break;
                 case State.Fall: Fall(); break;
+                case State.Death: Death(); break;
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(collision.gameObject.tag == Enums.Tags.Enemy.ToString() || collision.gameObject.tag == Enums.Tags.EnemyBullet.ToString())
+            {
+                this.rgbdy.velocity = -this.transform.right * this.speed + this.transform.up * this.jumpSpeed;
+                this.col.enabled = false;
+                this.anim.SetTrigger(this.deathHash);
             }
         }
 
@@ -85,7 +103,7 @@
         {
             if (collision.gameObject.tag == Enums.Tags.Space.ToString())
             {
-                this.foot.layer = (int)Enums.Layers.PlayerPhase;
+                this.phaser.layer = (int)Enums.Layers.PlayerPhase;
                 this.inTrigger = true;
             }
         }
@@ -94,7 +112,7 @@
         {
             if (collision.gameObject.tag == Enums.Tags.Space.ToString())
             {
-                this.foot.layer = (int)Enums.Layers.PlayerPhase;
+                this.phaser.layer = (int)Enums.Layers.PlayerPhase;
                 this.inTrigger = true;
             }
         }
@@ -103,7 +121,7 @@
         {
             if (collision.gameObject.tag == Enums.Tags.Space.ToString())
             {
-                this.foot.layer = (int)Enums.Layers.Player;
+                this.phaser.layer = (int)Enums.Layers.Player;
                 this.inTrigger = true;
             }
         }
@@ -115,6 +133,13 @@
 
         private void Idle()
         {
+            if(this.died)
+            {
+                this.anim.ResetTrigger(this.deathHash);
+                this.col.enabled = true;
+                this.gameObject.SetActive(false);
+                this.died = false;
+            }
         }
 
         private void Move()
@@ -131,9 +156,14 @@
 
         private void Fall()
         {
-            this.anim.ResetTrigger(this.jump);
+            this.anim.ResetTrigger(this.jumpHash);
             float xVel = GetXVel();
             this.rgbdy.velocity = new Vector3(xVel, this.rgbdy.velocity.y, 0);
+        }
+
+        private void Death()
+        {
+            this.died = true;
         }
 
         private float GetXVel()

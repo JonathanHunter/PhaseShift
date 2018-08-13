@@ -63,8 +63,15 @@
 
         private void Update()
         {
-            if (Managers.GameManager.Instance.IsPaused || player.IsDead)
+            if (Managers.GameManager.Instance.IsPaused)
                 return;
+            
+            if(this.player.IsDead)
+            {
+                this.anim.SetBool(this.aimHash, false);
+                this.anim.SetBool(this.shootHash, false);
+                return;
+            }
 
             bool shouldAim = ShouldAim();
             if (shouldAim)

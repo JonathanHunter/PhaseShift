@@ -23,6 +23,11 @@
         [SerializeField]
         private Material background;
 
+        [SerializeField]
+        private AudioSource deathSound;
+        [SerializeField]
+        private AudioSource skateSound;
+
         public bool IsDead { get { return this.died; } }
 
         private enum State { Idle, Move, Jump, Fall, Death }
@@ -91,6 +96,14 @@
                 case State.Fall: Fall(); break;
                 case State.Death: Death(); break;
             }
+            if (!InAirCheck() && IsMovingCheck())
+            {
+                skateSound.volume = 0.5f;
+            }
+            else
+            {
+                skateSound.volume = 0;
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -135,6 +148,11 @@
             return this.rgbdy.velocity.y < -.5f || this.rgbdy.velocity.y > .5f;
         }
 
+        private bool IsMovingCheck()
+        {
+            return this.rgbdy.velocity.x< -.1f || this.rgbdy.velocity.x > .1f;
+        }
+
         private void Idle()
         {
             if(this.died)
@@ -167,6 +185,10 @@
 
         private void Death()
         {
+            if (!this.died)
+            {
+                deathSound.Play();
+            }
             this.died = true;
         }
 

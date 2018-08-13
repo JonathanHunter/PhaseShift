@@ -23,6 +23,9 @@
         [SerializeField]
         private float customGravity = -9.81f;
 
+        [SerializeField]
+        private AudioSource detonateSound;
+
         private bool isDetonated;
         private bool doOnce;
         private bool usesCustomGravity;
@@ -31,6 +34,7 @@
 
         public void Detonate()
         {
+            detonateSound.Play();
             this.isDetonated = true;
             this.transform.localScale = Vector3.one * this.detonationSize;
             this.currentSize = this.detonationSize;

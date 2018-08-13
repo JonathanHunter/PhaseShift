@@ -24,6 +24,11 @@
         [SerializeField]
         private Player player;
 
+        [SerializeField]
+        private AudioSource fireGun;
+        [SerializeField]
+        private AudioSource fireSpaceGun;
+
         private enum State { Idle, Aim, Shoot }
 
         private Camera sceneCamera;
@@ -194,6 +199,7 @@
                     GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Basic);
                     if (b != null)
                     {
+                        fireGun.Play();
                         b.transform.position = this.barrel.position;
                         b.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, this.aimDir));
                         this.shotTimer = this.shotTime;
@@ -206,6 +212,7 @@
                         GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Space);
                         if (b != null)
                         {
+                            fireSpaceGun.Play();
                             b.transform.position = this.barrel.position;
                             b.transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, this.aimDir));
                             this.prevBullet = b.GetComponent<SpaceBullet>();

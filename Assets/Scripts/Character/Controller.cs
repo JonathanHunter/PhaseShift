@@ -8,6 +8,9 @@
         [SerializeField]
         private Animator anim;
 
+        [SerializeField]
+        private AudioSource jumpSound;
+
         private int move;
         private int jump;
 
@@ -24,7 +27,10 @@
 
             this.anim.SetBool(this.move, (CustomInput.BoolHeld(CustomInput.UserInput.Left) || CustomInput.BoolHeld(CustomInput.UserInput.Right)));
             if (CustomInput.BoolFreshPress(CustomInput.UserInput.Jump))
+            {
                 this.anim.SetTrigger(this.jump);
+                jumpSound.Play();
+            }
         }
     }
 }

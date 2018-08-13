@@ -36,6 +36,17 @@
 		float3 _Position8; // from script
 		float3 _Position9; // from script
 
+		loat1 _Scale0; // from script
+		float1 _Scale1; // from script
+		float1 _Scale2; // from script
+		float1 _Scale3; // from script
+		float1 _Scale4; // from script
+		float1 _Scale5; // from script
+		float1 _Scale6; // from script
+		float1 _Scale7; // from script
+		float1 _Scale8; // from script
+		float1 _Scale9; // from script
+
 		sampler2D _MainTex, _SecondTex;
 		float4 _Color, _Color2;
 		sampler2D _NoiseTex;
@@ -109,16 +120,16 @@
 			
 
 			// distance influencer position to world position
-			float3 dis0 = distance(_Position0, IN.worldPos);
-			float3 dis1 = distance(_Position1, IN.worldPos);
-			float3 dis2 = distance(_Position2, IN.worldPos);
-			float3 dis3 = distance(_Position3, IN.worldPos);
-			float3 dis4 = distance(_Position4, IN.worldPos);
-			float3 dis5 = distance(_Position5, IN.worldPos);
-			float3 dis6 = distance(_Position6, IN.worldPos);
-			float3 dis7 = distance(_Position7, IN.worldPos);
-			float3 dis8 = distance(_Position8, IN.worldPos);
-			float3 dis9 = distance(_Position9, IN.worldPos);
+			float3 dis0 = distance(_Position0, IN.worldPos) - _Scale0 / 2;
+			float3 dis1 = distance(_Position1, IN.worldPos) - _Scale1 / 2;
+			float3 dis2 = distance(_Position2, IN.worldPos) - _Scale2 / 2;
+			float3 dis3 = distance(_Position3, IN.worldPos) - _Scale3 / 2;
+			float3 dis4 = distance(_Position4, IN.worldPos) - _Scale4 / 2;
+			float3 dis5 = distance(_Position5, IN.worldPos) - _Scale5 / 2;
+			float3 dis6 = distance(_Position6, IN.worldPos) - _Scale6 / 2;
+			float3 dis7 = distance(_Position7, IN.worldPos) - _Scale7 / 2;
+			float3 dis8 = distance(_Position8, IN.worldPos) - _Scale8 / 2;
+			float3 dis9 = distance(_Position9, IN.worldPos) - _Scale9 / 2;
 			
 			float3 minimum = min10(dis0, dis1, dis2, dis3, dis4, dis5, dis6, dis7, dis8, dis9);
 

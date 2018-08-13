@@ -11,10 +11,6 @@
         [SerializeField]
         private GameObject mainSelected;
         [SerializeField]
-        private GameObject settingsParent;
-        [SerializeField]
-        private GameObject settingsSelected;
-        [SerializeField]
         private GameObject creditsParent;
         [SerializeField]
         private GameObject creditsSelected;
@@ -77,7 +73,6 @@
             inMain = true;
 			inCredits = false;
             mainParent.SetActive(true);
-            settingsParent.SetActive(false);
             creditsParent.SetActive(false);
             EventSystem.current.SetSelectedGameObject(mainSelected);
         }
@@ -93,19 +88,8 @@
             inMain = false;
             inCredits = true;
             mainParent.SetActive(false);
-            settingsParent.SetActive(false);
             creditsParent.SetActive(true);
             EventSystem.current.SetSelectedGameObject(creditsSelected);
-        }
-
-        public void GoToSettings()
-        {
-            inMain = false;
-			inCredits = false;
-            mainParent.SetActive(false);
-            settingsParent.SetActive(true);
-            creditsParent.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(settingsSelected);
         }
 
         public void Exit()

@@ -4,7 +4,7 @@
 
     class CameraTracker : MonoBehaviour
     {
-        private Transform player;
+        public Transform player;
         public Transform upperBound;
         public Transform lowerBound;
         public Transform leftBound;
@@ -12,7 +12,6 @@
 
         void Start()
         {
-            this.player = null;
         }
 
         void Update()

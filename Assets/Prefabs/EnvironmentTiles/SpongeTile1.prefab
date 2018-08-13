@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4482930551179430}
   - component: {fileID: 33018644299052018}
   - component: {fileID: 23437144136961664}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: spongeSingle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4424560492187810}
   - component: {fileID: 65968519504801682}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SpongeTile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661099164252550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.95, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4482930551179430}

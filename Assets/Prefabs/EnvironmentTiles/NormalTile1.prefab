@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4931811639815688}
   - component: {fileID: 65812829594826528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NormalTile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4483447629891160}
   - component: {fileID: 33634973289589280}
   - component: {fileID: 23205858228209874}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteHorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343158017729816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4483447629891160}

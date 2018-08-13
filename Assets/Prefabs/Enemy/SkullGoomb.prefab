@@ -172,9 +172,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4186075026633732}
-  - component: {fileID: 65249681737167326}
   - component: {fileID: 54337988841391116}
   - component: {fileID: 114246456967780140}
+  - component: {fileID: 136178496422916022}
   m_Layer: 15
   m_Name: SkullGoomb
   m_TagString: Enemy
@@ -380,18 +380,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &65249681737167326
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1926825878912252}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6, z: 0.5}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!95 &95140730271739978
 Animator:
   serializedVersion: 3
@@ -430,6 +418,19 @@ MonoBehaviour:
   leftBoundary: {fileID: 4264713711159904}
   rightBoundary: {fileID: 4556887251118952}
   explosion: {fileID: 1022202368964302, guid: 895241b4799c6af45b549389053a5021, type: 2}
+--- !u!136 &136178496422916022
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926825878912252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!137 &137196080836294912
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

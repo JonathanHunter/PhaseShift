@@ -81,9 +81,9 @@ Material:
     - _NScale: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 1.84
+    - _Radius: 0
     - _RimLevel: 1
-    - _RimPower: 3
+    - _RimPower: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

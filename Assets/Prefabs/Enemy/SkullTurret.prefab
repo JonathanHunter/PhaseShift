@@ -1390,9 +1390,8 @@ MonoBehaviour:
   - {fileID: 82833386025909874}
   - {fileID: 82840630451556700}
   launchSound: {fileID: 82962286169272854}
-  explodeSound: {fileID: 82365008112900074}
   rgbdy: {fileID: 54884281109039836}
-  shotTime: 1
+  shotTime: 2
   barrel: {fileID: 4370397270756010}
   explosion: {fileID: 1022202368964302, guid: 895241b4799c6af45b549389053a5021, type: 2}
 --- !u!137 &137019332607277308

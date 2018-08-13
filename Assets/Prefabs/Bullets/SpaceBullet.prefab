@@ -286,8 +286,8 @@ MonoBehaviour:
   type: 1
   speed: 6.5
   rgbdy: {fileID: 54274080971838916}
-  detonationSize: 3
-  shrinkSpeed: 1
+  detonationSize: 4
+  shrinkSpeed: 0.75
   ball: {fileID: 1762108181309678}
   customGravity: -9.81
   detonateSound: {fileID: 82602247755628030}

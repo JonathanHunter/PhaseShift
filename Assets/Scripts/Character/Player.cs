@@ -137,8 +137,8 @@
             {
                 this.anim.ResetTrigger(this.deathHash);
                 this.col.enabled = true;
-                this.gameObject.SetActive(false);
                 this.died = false;
+                Managers.CheckpointManager.Instance.Respawn();
             }
         }
 

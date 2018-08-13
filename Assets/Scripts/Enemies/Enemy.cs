@@ -40,6 +40,7 @@
                 this.gameObject.layer = (int)this.startLayer;
 
             this.inTrigger = false;
+            Debug.Log(this.health);
             if (this.health <= 0)
                 Death();
             else

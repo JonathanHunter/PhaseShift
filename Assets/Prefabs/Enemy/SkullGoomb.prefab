@@ -429,6 +429,7 @@ MonoBehaviour:
   animatorLayer: Base Layer
   leftBoundary: {fileID: 4264713711159904}
   rightBoundary: {fileID: 4556887251118952}
+  explosion: {fileID: 1022202368964302, guid: 895241b4799c6af45b549389053a5021, type: 2}
 --- !u!137 &137196080836294912
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

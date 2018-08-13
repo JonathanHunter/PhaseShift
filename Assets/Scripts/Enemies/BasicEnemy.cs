@@ -22,6 +22,8 @@
         private Transform leftBoundary;
         [SerializeField]
         private Transform rightBoundary;
+        [SerializeField]
+        private GameObject explosion;
 
         private enum State { Idle, Turn, Hurt, Death }
 
@@ -97,6 +99,7 @@
 
         protected override void Death()
         {
+            Instantiate(explosion, this.transform.position, Quaternion.identity);
             this.anim.SetBool(this.deathHash, true);
             ReturnEnemy();
         }

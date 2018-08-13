@@ -13,6 +13,8 @@
         private float shotTime;
         [SerializeField]
         private Transform barrel;
+        [SerializeField]
+        private GameObject explosion;
 
         private Transform player;
         private float size;
@@ -65,6 +67,12 @@
         protected override void TakeDamage()
         {
             this.size = 1.2f;
+        }
+
+        protected override void Death()
+        {
+            Instantiate(explosion, this.transform.position, Quaternion.identity);
+            ReturnEnemy();
         }
     }
 }

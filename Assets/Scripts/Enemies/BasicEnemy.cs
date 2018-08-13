@@ -95,6 +95,7 @@
         protected override void TakeDamage()
         {
             this.anim.SetTrigger(this.hurtHash);
+            hitSound[Random.Range(0, hitSound.Length)].Play();
         }
 
         protected override void Death()

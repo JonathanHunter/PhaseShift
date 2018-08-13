@@ -25,6 +25,11 @@
         private bool inTrigger;
         private int health;
 
+        [SerializeField]
+        protected AudioSource[] hitSound;
+        [SerializeField]
+        protected AudioSource launchSound;
+
         public void SetLayers(Enums.Layers startLayer, Enums.Layers phaseLayer)
         {
             this.startLayer = startLayer;

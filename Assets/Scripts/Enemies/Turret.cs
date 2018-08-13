@@ -67,6 +67,7 @@
         protected override void TakeDamage()
         {
             this.size = 1.2f;
+            hitSound[Random.Range(0, hitSound.Length)].Play();
         }
 
         protected override void Death()

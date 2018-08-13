@@ -7,6 +7,10 @@ public class ExplosionBillboard : MonoBehaviour {
 
     float speed = 1f;
     public Renderer rend;
+
+    [SerializeField]
+    protected AudioSource explodeSound;
+
     void Start()
     {
         rend = GetComponentInChildren<Renderer>();

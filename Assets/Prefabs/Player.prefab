@@ -1921,6 +1921,7 @@ MonoBehaviour:
   animatorLayer: Base Layer
   speed: 5
   jumpSpeed: 9
+  background: {fileID: 2100000, guid: 365e4cedfbaa4724881cec7ca7d8f1c5, type: 2}
 --- !u!136 &136028405221389664
 CapsuleCollider:
   m_ObjectHideFlags: 1

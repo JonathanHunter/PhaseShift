@@ -20,6 +20,8 @@
         private float speed;
         [SerializeField]
         private float jumpSpeed;
+        [SerializeField]
+        private Material background;
 
         public bool IsDead { get { return this.died; } }
 

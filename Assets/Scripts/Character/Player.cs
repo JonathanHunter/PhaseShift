@@ -21,6 +21,8 @@
         [SerializeField]
         private float jumpSpeed;
 
+        public bool IsDead { get { return this.died; } }
+
         private enum State { Idle, Move, Jump, Fall, Death }
         private State currentState;
         private AnimationStateMapper<State> mapper;

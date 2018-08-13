@@ -21,6 +21,8 @@
         private float shotTime;
         [SerializeField]
         private float spaceTime;
+        [SerializeField]
+        private Player player;
 
         private enum State { Idle, Aim, Shoot }
 
@@ -61,7 +63,7 @@
 
         private void Update()
         {
-            if (Managers.GameManager.Instance.IsPaused)
+            if (Managers.GameManager.Instance.IsPaused || player.IsDead)
                 return;
 
             bool shouldAim = ShouldAim();

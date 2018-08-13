@@ -870,7 +870,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1847116701258872
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -1101,11 +1101,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1847116701258872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.594, y: 0.101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4540924422116070}
-  m_RootOrder: 1
+  m_Father: {fileID: 4687688547856938}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4211654871081872
 Transform:
@@ -1398,7 +1398,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4687949579423540}
-  - {fileID: 4197518964767026}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1546,7 +1545,8 @@ Transform:
   m_LocalRotation: {x: 0.99897325, y: -0.00791919, z: 0.040361974, w: 0.01899245}
   m_LocalPosition: {x: -0.114796065, y: 0.000000006519258, z: -0.000000003899913}
   m_LocalScale: {x: 0.9999998, y: 1, z: 1.0000001}
-  m_Children: []
+  m_Children:
+  - {fileID: 4197518964767026}
   m_Father: {fileID: 4213133267278060}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1890,6 +1890,7 @@ MonoBehaviour:
   barrel: {fileID: 4197518964767026}
   shotTime: 0.05
   spaceTime: 1
+  player: {fileID: 114876941576677482}
 --- !u!114 &114793566838811900
 MonoBehaviour:
   m_ObjectHideFlags: 1

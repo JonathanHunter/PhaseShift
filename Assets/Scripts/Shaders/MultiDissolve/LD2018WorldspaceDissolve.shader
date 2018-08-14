@@ -2,6 +2,9 @@
 	Properties{
 		_Color("Primary Color", Color) = (1,1,1,1)
 		_MainTex("Primary (RGB)", 2D) = "white" {}
+		_NormalMap("Primary Normal map", 2D) = "bump" {}
+		_Metallic("Metallic value", Range(0, 1)) = 0
+		_Smoothness("Smoothness value", Range(0, 1)) = 0
 	_Color2("Secondary Color", Color) = (1,1,1,1)
 		_SecondTex("Secondary (RGB)", 2D) = "white" {}
 	_Ramp("Toon Ramp (RGB)", 2D) = "gray" {}
@@ -50,9 +53,10 @@
 		float1 _Scale8; // from script
 		float1 _Scale9; // from script
 
-		sampler2D _MainTex, _SecondTex;
+		sampler2D _MainTex, _NormalMap, _SecondTex;
 		float4 _Color, _Color2;
 		sampler2D _NoiseTex;
+		float _Smoothness, _Metallic;
 		float _DisAmount, _NScale;
 		float _DisLineWidth;
 		float4 _DisLineColor;
@@ -67,6 +71,7 @@
 			float3 worldNormal; // built in value for world normal
 			float3 viewDir; //Built in value for active camera view direction.
 			float3 localNormal; //Meant to capture local normal from vert
+			INTERNAL_DATA
 		};
 
 		float3 min10(float3 dis0, float3 dis1, float3 dis2, float3 dis3, float3 dis4, float3 dis5, float3 dis6, float3 dis7, float3 dis8, float3 dis9)
@@ -103,7 +108,7 @@
 			
 
 			// triplanar noise
-			float3 blendNormal = saturate(pow(IN.worldNormal * 1.4, 4));
+			float3 blendNormal = saturate(pow(WorldNormalVector (IN, o.Normal) * 1.4, 4));
 			half4 nSide1 = tex2D(_NoiseTex, (IN.worldPos.xy + _Time.x) * _NScale);
 			half4 nSide2 = tex2D(_NoiseTex, (IN.worldPos.xz + _Time.x) * _NScale);
 			half4 nTop = tex2D(_NoiseTex, (IN.worldPos.yz + _Time.x) * _NScale);
@@ -136,7 +141,7 @@
 			DissolveLine *= _DisLineColor; // color the line
 
 			//Rim Stuff
-			float rimPower = pow(abs(1 - dot(IN.viewDir, IN.worldNormal)) * _RimPower, _RimLevel * 10);
+			float rimPower = pow(abs(1 - dot(IN.viewDir, WorldNormalVector (IN, o.Normal))) * _RimPower, _RimLevel * 10);
 
 			float3 primaryTex = (step(sphereNoise - _DisLineWidth, _DisAmount) * c.rgb);
 			float3 secondaryTex = (step(_DisAmount, sphereNoise) * c2.rgb);
@@ -148,6 +153,9 @@
 			float3 secondaryAlpha = (step(_DisAmount, sphereNoise) * c2.a);
 			float3 resultAlpha = primaryAlpha + secondaryAlpha + DissolveLine;
 
+			o.Normal = UnpackNormal (tex2D (_NormalMap, IN.uv_MainTex));
+			o.Smoothness = _Smoothness;
+			o.Metallic = _Metallic;
 			o.Emission = DissolveLine;
 			o.Alpha = resultAlpha;
 		}

@@ -14,6 +14,9 @@
         [SerializeField]
         private int maxHealth;
 
+        [SerializeField]
+        private Collider col;
+
         /// <summary> The type of enemy this is.  (Object pooling management) </summary>
         public EnemyPool.EnemyTypes Type { get { return this.type; } }
 
@@ -45,9 +48,11 @@
                 this.gameObject.layer = (int)this.startLayer;
 
             this.inTrigger = false;
-            Debug.Log(this.health);
             if (this.health <= 0)
+            {
+                this.col.enabled = false;
                 Death();
+            }
             else
                 LocalUpdate();
         }
@@ -119,6 +124,7 @@
         public void ReInitialize()
         {
             LocalReInitialize();
+            this.col.enabled = true;
             this.gameObject.SetActive(true);
             this.inTrigger = false;
             this.health = this.maxHealth;

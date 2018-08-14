@@ -27,7 +27,6 @@ namespace PhaseShift.ShaderPosition
                 {
                     Shader.SetGlobalVector("_Position" + i, positionArray[i].position);
                     Shader.SetGlobalFloat("_Scale" + i, positionArray[i].localScale.x);
-                    print(positionArray[i].localScale.x);
                 }
                 else
                 {

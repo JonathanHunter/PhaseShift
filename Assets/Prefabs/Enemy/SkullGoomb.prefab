@@ -1448,6 +1448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   maxHealth: 10
+  col: {fileID: 136178496422916022}
   hitSound:
   - {fileID: 82448763102702566}
   - {fileID: 82394879250708232}
@@ -1456,7 +1457,6 @@ MonoBehaviour:
   - {fileID: 82529881742515680}
   - {fileID: 82586564523944640}
   launchSound: {fileID: 82850053380130168}
-  explodeSound: {fileID: 82018807122738570}
   speed: 3
   rgbdy: {fileID: 54337988841391116}
   anim: {fileID: 95140730271739978}

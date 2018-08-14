@@ -101,7 +101,7 @@
         protected override void Death()
         {
             Instantiate(explosion, this.transform.position, Quaternion.identity);
-            this.anim.SetBool(this.deathHash, true);
+            //this.anim.SetBool(this.deathHash, true);
             ReturnEnemy();
         }
 

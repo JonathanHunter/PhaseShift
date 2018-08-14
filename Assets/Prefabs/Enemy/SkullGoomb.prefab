@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  maxHealth: 10
+  maxHealth: 6
   col: {fileID: 136178496422916022}
   hitSound:
   - {fileID: 82448763102702566}

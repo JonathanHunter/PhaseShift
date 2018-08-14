@@ -14,6 +14,9 @@
 
         private bool active;
 
+        [SerializeField]
+        private AudioSource activateSound;
+
         private void Start()
         {
             rend = GetComponentInChildren<Renderer>();
@@ -32,6 +35,11 @@
             {
                 CheckpointManager.Instance.RegisterCheckpoint(this.number);
                 this.col.enabled = false;
+
+                if (!active)
+                {
+                    activateSound.Play();
+                }
 
                 active = true;
 

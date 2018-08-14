@@ -26,6 +26,8 @@
         [SerializeField]
         private AudioSource deathSound;
         [SerializeField]
+        private AudioSource respawnSound;
+        [SerializeField]
         private AudioSource skateSound;
 
         public bool IsDead { get { return this.died; } }
@@ -161,6 +163,7 @@
                 this.col.enabled = true;
                 this.died = false;
                 Managers.CheckpointManager.Instance.Respawn();
+                respawnSound.Play();
             }
         }
 

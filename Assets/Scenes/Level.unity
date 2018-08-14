@@ -31441,11 +31441,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4540924422116070, guid: 7c94af7262992a142b0b743366e016ee, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 259.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4540924422116070, guid: 7c94af7262992a142b0b743366e016ee, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 35.7
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4540924422116070, guid: 7c94af7262992a142b0b743366e016ee, type: 2}
       propertyPath: m_LocalPosition.z

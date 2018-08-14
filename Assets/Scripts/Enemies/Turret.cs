@@ -19,6 +19,7 @@
         private Transform player;
         private float size;
         private float shotTimer;
+        private bool doOnce;
 
         protected override void LocalInitialize()
         {
@@ -30,6 +31,7 @@
             this.size = 1;
             this.transform.localScale = Vector3.one;
             this.shotTimer = this.shotTime;
+            this.doOnce = false;
         }
 
         protected override void LocalUpdate()
@@ -68,12 +70,22 @@
         {
             this.size = 1.2f;
             hitSound[Random.Range(0, hitSound.Length)].Play();
+            if (this.health <= 0) { this.rgbdy.velocity = -this.transform.right * 3f + this.transform.up * 10; }
         }
 
         protected override void Death()
         {
-            Instantiate(explosion, this.transform.position, Quaternion.identity);
-            ReturnEnemy();
+            if(!this.doOnce)
+            {
+                this.shotTimer = .25f;
+                this.doOnce = true;
+            }
+
+            if((this.shotTimer -= Time.deltaTime) <= 0)
+            {
+                Instantiate(explosion, this.transform.position, Quaternion.identity);
+                ReturnEnemy();
+            }
         }
     }
 }

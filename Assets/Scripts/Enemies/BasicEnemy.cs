@@ -15,8 +15,6 @@
         [Tooltip("The rigidbody for this enemy.")]
         private Rigidbody rgbdy;
         [SerializeField]
-        private Collider col;
-        [SerializeField]
         private Animator anim;
         [SerializeField]
         private string animatorLayer;
@@ -103,9 +101,6 @@
 
         protected override void Death()
         {
-            
-            this.col.enabled = false;
-
             this.anim.SetTrigger(this.deathHash);
 
             if (this.mapper.GetCurrentState() == State.Death && this.mapper.GetCurrentNormalizedTime() >= .9)

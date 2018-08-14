@@ -1787,7 +1787,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076439865424840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 201.5, y: 31.71, z: 0}
+  m_LocalPosition: {x: -1, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4687949579423540}
@@ -3732,11 +3732,11 @@ MonoBehaviour:
   _emit: 1
   _emitTime: 0
   _material: {fileID: 2100000, guid: 6f1ce0467cb2bde4cb66833f2ddbc86b, type: 2}
-  _lifeTime: 1
+  _lifeTime: 0.49
   _colors: []
   _sizes: []
   _minVertexDistance: 0.1
-  _maxVertexDistance: 10
+  _maxVertexDistance: 5.05
   _maxAngle: 3
   _autoDestruct: 0
   _base: {fileID: 4315478228176428}
@@ -3790,11 +3790,11 @@ MonoBehaviour:
   _emit: 1
   _emitTime: 0
   _material: {fileID: 2100000, guid: 6f1ce0467cb2bde4cb66833f2ddbc86b, type: 2}
-  _lifeTime: 1
+  _lifeTime: 0.49
   _colors: []
   _sizes: []
   _minVertexDistance: 0.1
-  _maxVertexDistance: 10
+  _maxVertexDistance: 5.01
   _maxAngle: 3
   _autoDestruct: 0
   _base: {fileID: 4515762361990616}

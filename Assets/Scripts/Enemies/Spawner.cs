@@ -26,7 +26,11 @@
 
         private void Update()
         {
-            if(!inside)
+
+            if (this.enemy != null && !this.enemy.activeSelf)
+                this.enemy = null;
+
+            if (!inside)
             {
                 if(this.player.transform.position.x > this.left.position.x && this.player.transform.position.x < this.right.position.x)
                 {

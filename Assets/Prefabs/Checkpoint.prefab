@@ -394,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
   activeColor: {r: 0, g: 0.09811449, b: 1, a: 0}
+  spinObject: {fileID: 1613200618826630}
   number: 0
   col: {fileID: 136358886830568350}
 --- !u!136 &136358886830568350

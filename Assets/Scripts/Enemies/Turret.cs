@@ -37,6 +37,7 @@
         protected override void LocalUpdate()
         {
             this.rgbdy.velocity = Vector3.zero;
+            this.rgbdy.useGravity = false;
             if(this.size > 1)
             {
                 this.size -= Time.deltaTime;
@@ -72,7 +73,8 @@
             hitSound[Random.Range(0, hitSound.Length)].Play();
             if (this.health <= 0)
             {
-                this.rgbdy.velocity = -this.transform.right * 3f + this.transform.up * 10;
+                this.rgbdy.velocity = -this.transform.right * 2 + this.transform.up * 5;
+                this.rgbdy.useGravity = true;
                 this.launchSound.Play();
             }
         }

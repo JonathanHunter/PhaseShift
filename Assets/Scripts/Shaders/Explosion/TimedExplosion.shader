@@ -103,7 +103,7 @@
 
 			fixed4 c = float4(_Progression, _Progression, _Progression, 0);
 			o.Albedo =  tex2D(_Gradient, gradientUVS) * cutoffMap;
-
+			o.Emission = o.Albedo;
 			o.Alpha = cutoffMapFull;
 			//o.Alpha = cutoffCheckRed(inverse,(1- _Progression));
 		}

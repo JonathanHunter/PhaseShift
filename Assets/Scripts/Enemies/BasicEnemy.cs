@@ -96,7 +96,11 @@
         {
             this.anim.SetTrigger(this.hurtHash);
             hitSound[Random.Range(0, hitSound.Length)].Play();
-            if(this.health <= 0) { this.rgbdy.velocity = -this.transform.right * this.speed + this.transform.up *10; }
+            if(this.health <= 0)
+            {
+                this.rgbdy.velocity = -this.transform.right * this.speed + this.transform.up *10;
+                this.launchSound.Play();
+            }
         }
 
         protected override void Death()

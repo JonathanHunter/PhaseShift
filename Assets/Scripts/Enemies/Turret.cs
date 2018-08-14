@@ -70,7 +70,11 @@
         {
             this.size = 1.2f;
             hitSound[Random.Range(0, hitSound.Length)].Play();
-            if (this.health <= 0) { this.rgbdy.velocity = -this.transform.right * 3f + this.transform.up * 10; }
+            if (this.health <= 0)
+            {
+                this.rgbdy.velocity = -this.transform.right * 3f + this.transform.up * 10;
+                this.launchSound.Play();
+            }
         }
 
         protected override void Death()

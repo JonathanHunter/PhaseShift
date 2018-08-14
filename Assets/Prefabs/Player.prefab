@@ -239,6 +239,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4515762361990616}
+  - component: {fileID: 114974288888708444}
   m_Layer: 12
   m_Name: shin_R
   m_TagString: Untagged
@@ -712,6 +713,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4315478228176428}
+  - component: {fileID: 114738385082725770}
   m_Layer: 12
   m_Name: shin_L
   m_TagString: Untagged
@@ -1785,7 +1787,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076439865424840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.21, z: 0}
+  m_LocalPosition: {x: 201.5, y: 31.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4687949579423540}
@@ -3715,6 +3717,30 @@ MonoBehaviour:
   player: {fileID: 114876941576677482}
   fireGun: {fileID: 82214634806271492}
   fireSpaceGun: {fileID: 82557160994345600}
+--- !u!114 &114738385082725770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494757009595336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d77ede545d58846bb4c6007d798751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfStart: 1
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 6f1ce0467cb2bde4cb66833f2ddbc86b, type: 2}
+  _lifeTime: 1
+  _colors: []
+  _sizes: []
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  _base: {fileID: 4315478228176428}
+  _tip: {fileID: 4298716190228946}
 --- !u!114 &114793566838811900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3745,10 +3771,34 @@ MonoBehaviour:
   anim: {fileID: 95892258757845152}
   animatorLayer: Base Layer
   speed: 3.5
-  jumpSpeed: 8
+  jumpSpeed: 10
   background: {fileID: 2100000, guid: 365e4cedfbaa4724881cec7ca7d8f1c5, type: 2}
   deathSound: {fileID: 82699487939524146}
   skateSound: {fileID: 82120927150711126}
+--- !u!114 &114974288888708444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129615500120236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d77ede545d58846bb4c6007d798751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfStart: 1
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 6f1ce0467cb2bde4cb66833f2ddbc86b, type: 2}
+  _lifeTime: 1
+  _colors: []
+  _sizes: []
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  _base: {fileID: 4515762361990616}
+  _tip: {fileID: 4380104406830790}
 --- !u!136 &136028405221389664
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -69,10 +69,10 @@
                 if (!this.wasPaused)
                 {
                     this.oldVel = this.rgbdy.velocity;
-                    this.rgbdy.velocity = Vector3.zero;
                     this.wasPaused = true;
                 }
 
+                this.rgbdy.velocity = Vector3.zero;
                 return;
             }
 

@@ -37,17 +37,17 @@
         {
             if (Managers.GameManager.Instance.IsPaused)
             {
+                Rigidbody r = this.GetComponent<Rigidbody>();
                 if (!this.wasPaused)
                 {
-                    Rigidbody r = this.GetComponent<Rigidbody>();
                     if (r != null)
-                    {
                         this.oldVel = r.velocity;
-                        r.velocity = Vector3.zero;
-                    }
 
                     this.wasPaused = true;
                 }
+
+                if (r != null)
+                    r.velocity = Vector3.zero;
 
                 return;
             }

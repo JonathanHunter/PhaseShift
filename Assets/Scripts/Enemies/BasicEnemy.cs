@@ -15,6 +15,8 @@
         [Tooltip("The rigidbody for this enemy.")]
         private Rigidbody rgbdy;
         [SerializeField]
+        private Collider col;
+        [SerializeField]
         private Animator anim;
         [SerializeField]
         private string animatorLayer;
@@ -96,13 +98,22 @@
         {
             this.anim.SetTrigger(this.hurtHash);
             hitSound[Random.Range(0, hitSound.Length)].Play();
+            if(this.health <= 0) { this.rgbdy.velocity = -this.transform.right * this.speed + this.transform.up *10; }
         }
 
         protected override void Death()
         {
-            Instantiate(explosion, this.transform.position, Quaternion.identity);
-            //this.anim.SetBool(this.deathHash, true);
-            ReturnEnemy();
+            
+            this.col.enabled = false;
+
+            this.anim.SetTrigger(this.deathHash);
+
+            if (this.mapper.GetCurrentState() == State.Death && this.mapper.GetCurrentNormalizedTime() >= .9)
+            {
+                Instantiate(explosion, this.transform.position, Quaternion.identity);
+                //this.anim.SetBool(this.deathHash, true);
+                ReturnEnemy();
+            }
         }
 
         private void Idle()

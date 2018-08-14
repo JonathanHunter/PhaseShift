@@ -26,7 +26,7 @@
         private Enums.Layers startLayer;
         private Enums.Layers phaseLayer;
         private bool inTrigger;
-        private int health;
+        protected int health;
 
         [SerializeField]
         protected AudioSource[] hitSound;
